@@ -1,0 +1,172 @@
+/* 表示するコンテンツの囲い */
+.contents {
+    width: fit-content;
+}
+
+/* 検索条件 */
+.search-form {
+    margin-bottom: 1rem;
+}
+.search-form_keyword {
+    padding: 0 5px;
+    margin-right: 5px;
+    height: 25px;
+}
+.search-form_company {
+    padding: 0 5px;
+    margin-right: 5px;
+    height: 29px;
+}
+.search-form_search {
+    border: 1px solid gray;
+    border-radius: 2px;
+    background-color: white;
+    padding: 0 5px;
+    height: 29px;
+}
+
+/* 商品一覧 */
+.product-list {
+    border: 1px solid gray;
+    border-spacing: 0;
+}
+.product-list td {
+    padding: 0.6rem;
+}
+.product-list thead td {
+    text-align: center;
+}
+.product-list tbody tr:nth-child(odd) td {
+    background: lightgray;
+}
+
+/* 商品一覧の表内のボタン類 */
+.product-list_new {
+    padding: 5px;
+    border: none;
+    border-radius: 2px;
+    background-color: coral;
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: black;
+}
+.product-list_detail {
+    margin: 0 5px;
+    padding: 3px 5px;
+    border: none;
+    border-radius: 2px;
+    background-color: skyblue;
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: black;
+}
+.product-list_delete_wrapper {
+    display: inline-block;
+}
+.product-list_delete {
+    margin: 0 5px;
+    border: none;
+    border-radius: 2px;
+    background-color: red;
+    font-size: 0.8rem;
+}
+
+/* ページ送り */
+.pagination {
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+}
+.pagination a {
+    border: 1px solid gray;
+    height: 25px;
+    width: 25px;
+    margin: 0;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+.pagination a:nth-child(n+2) {
+    border-left: none;
+}
+
+/* 商品登録フォーム */
+.register-form {
+    border: 1px solid gray;
+    padding: 30px;
+}
+.register-form_row {
+    padding-bottom: 15px;
+}
+.register-form_label {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 4px;
+    width: 100px;
+}
+.register-form_label:has(+ :required)::after {
+    content: "*";
+    color: red;
+}
+.register-form_input {
+    display: inline-block;
+    width: 250px;
+    padding: 5px;
+}
+select.register-form_input {
+    /* selectの幅が足りないため微調整 */
+    width: 264px;
+}
+textarea.register-form_input {
+    /* textareaの幅が足りないため微調整 */
+    width: 252px;
+    min-width: 252px;
+    max-width: 252px;
+}
+
+/* 商品新規登録画面、商品編集画面のボタン */
+.register-btn {
+    margin-right: 20px;
+    width: 65px;
+    height: 26px;
+    border: none;
+    border-radius: 2px;
+    background-color: coral;
+    font-size: 0.8rem;
+}
+.update-btn {
+    margin-right: 20px;
+    width: 65px;
+    height: 26px;
+    border: none;
+    border-radius: 2px;
+    background-color: coral;
+    font-size: 0.8rem;
+}
+.edit-btn {
+    display: inline-block;
+    margin-right: 20px;
+    padding: 3px 0;
+    text-align: center;
+    width: 65px;
+    border: none;
+    border-radius: 2px;
+    background-color: coral;
+    text-decoration: none;
+    font-size: 0.8rem;
+    color: black;
+}
+.back-btn {
+    display: inline-block;
+    padding: 3px 0;
+    text-align: center;
+    width: 65px;
+    border: none;
+    border-radius: 2px;
+    background-color: skyblue;
+    text-decoration: none;
+    font-size: 0.8rem;
+    color: black;
+}
