@@ -45,20 +45,24 @@ class ProductController extends Controller
     }
 
     public function register(Request $request) {
-        $product = new Product();
-        $product->company_id = $request->input('company_id');
-        $product->product_name = $request->input('product_name');
-        $product->price = $request->input('price');
-        $product->stock = $request->input('stock');
-        $product->comment = $request->input('comment');
-        $product->save();
-
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $file_name = $file->getClientOriginalName();
-            $file->storeAs("public/images/{$product->id}", $file_name);
-            $product->img_path = "/images/{$product->id}/{$file_name}";
+        try {
+            $product = new Product();
+            $product->company_id = $request->input('company_id');
+            $product->product_name = $request->input('product_name');
+            $product->price = $request->input('price');
+            $product->stock = $request->input('stock');
+            $product->comment = $request->input('comment');
             $product->save();
+
+            if ($request->hasFile('image')) {
+                $file = $request->file('image');
+                $file_name = $file->getClientOriginalName();
+                $file->storeAs("public/images/{$product->id}", $file_name);
+                $product->img_path = "/images/{$product->id}/{$file_name}";
+                $product->save();
+            }
+        } catch (\Throwable $th) {
+            return abort(500, '登録に失敗しました');
         }
 
         return redirect()->route('product.register');
@@ -86,20 +90,24 @@ class ProductController extends Controller
     }
 
     public function edit(Request $request, $id) {
-        $product = Product::find($id);
-        $product->company_id = $request->input('company_id');
-        $product->product_name = $request->input('product_name');
-        $product->price = $request->input('price');
-        $product->stock = $request->input('stock');
-        $product->comment = $request->input('comment');
-        $product->save();
-
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $file_name = $file->getClientOriginalName();
-            $file->storeAs("public/images/{$product->id}", $file_name);
-            $product->img_path = "images/{$product->id}/{$file_name}";
+        try {
+            $product = Product::find($id);
+            $product->company_id = $request->input('company_id');
+            $product->product_name = $request->input('product_name');
+            $product->price = $request->input('price');
+            $product->stock = $request->input('stock');
+            $product->comment = $request->input('comment');
             $product->save();
+
+            if ($request->hasFile('image')) {
+                $file = $request->file('image');
+                $file_name = $file->getClientOriginalName();
+                $file->storeAs("public/images/{$product->id}", $file_name);
+                $product->img_path = "images/{$product->id}/{$file_name}";
+                $product->save();
+            }
+        } catch (\Throwable $th) {
+            return abort(500, '更新に失敗しました');
         }
 
         return redirect()->route('product.edit', $id);
@@ -108,7 +116,11 @@ class ProductController extends Controller
     public function delete(Request $request, $id) {
         $return_url = $request->input('return_url');
 
-        Product::find($id)->delete();
+        try {
+            Product::find($id)->delete();
+        } catch (\Throwable $th) {
+            return abort(500, '削除に失敗しました');
+        }
 
         return redirect($return_url);
     }
