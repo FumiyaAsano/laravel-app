@@ -24,6 +24,30 @@
     padding: 0 5px;
     height: 29px;
 }
+.search-form_price-gte {
+    padding: 0 5px;
+    margin-right: 5px;
+    height: 25px;
+    width: 50px;
+}
+.search-form_price-lte {
+    padding: 0 5px;
+    margin-right: 5px;
+    height: 25px;
+    width: 50px;
+}
+.search-form_stock-gte {
+    padding: 0 5px;
+    margin-right: 5px;
+    height: 25px;
+    width: 50px;
+}
+.search-form_stock-lte {
+    padding: 0 5px;
+    margin-right: 5px;
+    height: 25px;
+    width: 50px;
+}
 
 /* 商品一覧 */
 .product-list {
@@ -60,15 +84,17 @@
     text-decoration: none;
     color: black;
 }
-.product-list_delete_wrapper {
-    display: inline-block;
-}
 .product-list_delete {
     margin: 0 5px;
+    padding: 3px 5px;
     border: none;
     border-radius: 2px;
-    background-color: red;
+    background-color: skyblue;
     font-size: 0.8rem;
+    text-decoration: none;
+    background-color: red;
+    color: black;
+    cursor: pointer;
 }
 
 /* ページ送り */

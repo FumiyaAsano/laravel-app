@@ -16,8 +16,4 @@ class Company extends Model
         'street_address',
         'representative_name',
     ];
-
-    public static function getNamesMap() {
-        return self::all()->pluck('company_name','id');
-    }
 }

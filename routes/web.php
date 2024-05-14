@@ -39,9 +39,5 @@ Route::get('/product/edit/{id}', [App\Http\Controllers\ProductController::class,
 // 商品情報編集リクエスト
 Route::put('/product/edit/{id}', [App\Http\Controllers\ProductController::class, 'edit']);
 
-// 商品情報削除リクエスト
-Route::delete('/product/delete/{id}', [App\Http\Controllers\ProductController::class, 'delete'])
-    ->name('product.delete');
-
 // パスワードリセットを無効化
 Auth::routes(['reset' => false]);
